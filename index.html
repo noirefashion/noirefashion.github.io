@@ -1,0 +1,1462 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOIRÉ | Luxury Fashion</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f3ef;
+    color: #111;
+}
+
+/* NAVBAR */
+
+header {
+    background: #111;
+    color: white;
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 7px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 13px;
+}
+
+.cart {
+    border: 1px solid #777;
+    padding: 10px 15px;
+}
+
+/* HERO */
+
+.hero {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: 75px;
+    letter-spacing: 12px;
+}
+
+.hero p {
+    margin: 20px 0 30px;
+    letter-spacing: 4px;
+}
+
+.hero button {
+    padding: 15px 35px;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* COLLECTION */
+
+.collection {
+    width: 92%;
+    max-width: 1400px;
+    margin: 70px auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.title h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+}
+
+.title p {
+    color: #777;
+    margin-top: 10px;
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filters input,
+.filters select,
+.filters button {
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #bbb;
+    background: white;
+}
+
+.filters input {
+    width: 300px;
+}
+
+.filters button {
+    cursor: pointer;
+}
+
+.filters button.active {
+    background: #111;
+    color: white;
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border: 1px solid #ddd;
+    transition: .25s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    background: #ddd;
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-id {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 7px;
+}
+
+.product-name {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.product-details {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.add-button {
+    width: 100%;
+    height: 43px;
+    border: none;
+    background: #111;
+    color: white;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background: #333;
+}
+
+/* PAGINATION */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    min-width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background: #111;
+    color: white;
+}
+
+.pagination button:disabled {
+    opacity: .4;
+}
+
+/* ABOUT */
+
+.about {
+    background: #111;
+    color: white;
+    padding: 90px 10%;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    letter-spacing: 7px;
+    margin-bottom: 25px;
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+    color: #ccc;
+    line-height: 1.9;
+}
+
+/* FOOTER */
+
+footer {
+    background: #080808;
+    color: #777;
+    text-align: center;
+    padding: 30px;
+}
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    nav {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 400px;
+    }
+
+    .filters input {
+        width: 100%;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            NOIRÉ
+        </div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#collection">COLLECTION</a>
+            <a href="#about">ABOUT</a>
+        </nav>
+
+        <div class="cart">
+            BAG (<span id="cartCount">0</span>)
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>NOIRÉ</h1>
+
+        <p>
+            MODERN LUXURY FASHION
+        </p>
+
+        <button onclick="goToCollection()">
+            EXPLORE COLLECTION
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- COLLECTION -->
+
+<section class="collection" id="collection">
+
+    <div class="title">
+
+        <h2>NOIRÉ COLLECTION</h2>
+
+        <p>
+            Exclusive Men's & Women's Collection
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search clothes..."
+        >
+
+        <button
+            class="gender-button active"
+            onclick="setGender('all', this)">
+            ALL
+        </button>
+
+        <button
+            class="gender-button"
+            onclick="setGender('men', this)">
+            MEN
+        </button>
+
+        <button
+            class="gender-button"
+            onclick="setGender('women', this)">
+            WOMEN
+        </button>
+
+        <select id="category">
+
+            <option value="all">
+                ALL CATEGORIES
+            </option>
+
+        </select>
+
+        <select id="sort">
+
+            <option value="default">
+                SORT
+            </option>
+
+            <option value="low">
+                PRICE LOW → HIGH
+            </option>
+
+            <option value="high">
+                PRICE HIGH → LOW
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div
+        class="products"
+        id="products">
+    </div>
+
+
+    <!-- PAGINATION -->
+
+    <div
+        class="pagination"
+        id="pagination">
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <h2>NOIRÉ</h2>
+
+    <p>
+        NOIRÉ is a fictional luxury fashion brand focused on
+        sophisticated tailoring, premium materials and modern
+        silhouettes. Explore our men's and women's collections.
+    </p>
+
+</section>
+
+
+<footer>
+
+    © 2026 NOIRÉ — Luxury Fashion
+
+</footer>
+
+
+<script>
+
+/*
+====================================================
+NOIRÉ CLOTHING WEBSITE
+1000 MEN + 1000 WOMEN
+====================================================
+*/
+
+
+/* ==============================
+   PRODUCT INFORMATION
+============================== */
+
+const menTypes = [
+
+    "Tailored Blazer",
+    "Italian Wool Suit",
+    "Double Breasted Suit",
+    "Luxury Tuxedo",
+    "Velvet Dinner Jacket",
+    "Silk Shirt",
+    "Oxford Shirt",
+    "Linen Shirt",
+    "Cashmere Polo",
+    "Premium Polo",
+    "Luxury Overshirt",
+    "Leather Jacket",
+    "Suede Jacket",
+    "Bomber Jacket",
+    "Wool Coat",
+    "Cashmere Coat",
+    "Trench Coat",
+    "Tailored Trousers",
+    "Pleated Trousers",
+    "Italian Chinos",
+    "Wide Trousers",
+    "Luxury Jeans",
+    "Raw Denim",
+    "Cargo Trousers",
+    "Cashmere Sweater",
+    "Merino Sweater",
+    "Cable Knit",
+    "Luxury Cardigan",
+    "Turtleneck",
+    "Premium Sweatshirt"
+
+];
+
+
+const womenTypes = [
+
+    "Silk Evening Gown",
+    "Haute Couture Dress",
+    "Satin Midi Dress",
+    "Velvet Dress",
+    "Tailored Dress",
+    "Luxury Blazer",
+    "Silk Blouse",
+    "Linen Shirt",
+    "Cashmere Cardigan",
+    "Luxury Knit Dress",
+    "Pleated Maxi Dress",
+    "Structured Mini Dress",
+    "Designer Jumpsuit",
+    "Silk Co-ord",
+    "Tailored Trouser Set",
+    "Designer Skirt",
+    "Pleated Skirt",
+    "Wide Leg Trousers",
+    "Italian Trousers",
+    "Luxury Jeans",
+    "Cargo Trousers",
+    "Leather Jacket",
+    "Suede Jacket",
+    "Cashmere Coat",
+    "Wool Trench Coat",
+    "Longline Coat",
+    "Cropped Jacket",
+    "Silk Kimono",
+    "Embroidered Jacket",
+    "Luxury Turtleneck"
+
+];
+
+
+const materials = [
+
+    "Italian Wool",
+    "Pure Cashmere",
+    "Mulberry Silk",
+    "French Linen",
+    "Egyptian Cotton",
+    "Merino Wool",
+    "Italian Leather",
+    "Premium Suede",
+    "Raw Denim",
+    "Silk Blend",
+    "Velvet",
+    "Jacquard",
+    "Mohair",
+    "Alpaca",
+    "Linen Silk",
+    "Bamboo Fabric",
+    "Organic Cotton",
+    "Wool Silk",
+    "Cashmere Silk",
+    "Premium Tencel"
+
+];
+
+
+const colors = [
+
+    "Obsidian Black",
+    "Midnight Navy",
+    "Ivory",
+    "Champagne",
+    "Burgundy",
+    "Graphite",
+    "Pearl White",
+    "Espresso",
+    "Forest Green",
+    "Royal Blue",
+    "Stone Grey",
+    "Sand",
+    "Platinum",
+    "Deep Wine",
+    "Charcoal",
+    "Olive",
+    "Camel",
+    "Silver",
+    "Cream",
+    "Chocolate",
+    "Taupe",
+    "Slate",
+    "Mocha",
+    "Onyx",
+    "Dust Grey"
+
+];
+
+
+const patterns = [
+
+    "Solid",
+    "Pinstripe",
+    "Windowpane",
+    "Herringbone",
+    "Micro Check",
+    "Fine Stripe",
+    "Jacquard",
+    "Paisley",
+    "Geometric",
+    "Abstract",
+    "Floral",
+    "Chevron",
+    "Tonal",
+    "Monogram",
+    "Heritage Check",
+    "Minimal Print",
+    "Shadow Stripe",
+    "Marble Print",
+    "Signature Print",
+    "Textured"
+
+];
+
+
+const fits = [
+
+    "Slim Fit",
+    "Regular Fit",
+    "Relaxed Fit",
+    "Tailored Fit",
+    "Oversized Fit",
+    "Structured Fit",
+    "Cropped Fit",
+    "Wide Fit",
+    "Straight Fit",
+    "Modern Fit"
+
+];
+
+
+const collections = [
+
+    "Noir Collection",
+    "Eclipse Collection",
+    "Monarch Collection",
+    "Regent Collection",
+    "Sovereign Collection",
+    "Prestige Collection",
+    "Heritage Collection",
+    "Riviera Collection",
+    "Imperial Collection",
+    "Atelier Collection",
+    "Signature Collection",
+    "Private Collection",
+    "Reserve Collection",
+    "Metropolitan Collection",
+    "Royal Collection",
+    "Élite Collection",
+    "Grand Collection",
+    "Obsidian Collection",
+    "Velour Collection",
+    "Maison Collection"
+
+];
+
+
+/* ==============================
+   IMAGE SOURCES
+============================== */
+
+const menImages = [
+
+    "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc",
+    "https://images.unsplash.com/photo-1598808503746-f34c53b9323e",
+    "https://images.unsplash.com/photo-1610652492500-ded49ceeb378",
+    "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3",
+    "https://images.unsplash.com/photo-1621072156002-e2fccdc0b176"
+
+];
+
+
+const womenImages = [
+
+    "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+    "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
+    "https://images.unsplash.com/photo-1539109136881-3be0616acf4b",
+    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3",
+    "https://images.unsplash.com/photo-1566206091558-7f218b696731"
+
+];
+
+
+/* ==============================
+   DATABASE
+============================== */
+
+const products = [];
+
+
+/*
+Create product.
+
+Important:
+Every product gets a unique ID
+and unique number in its name.
+*/
+
+function createProduct(gender, number) {
+
+    const types =
+        gender === "men"
+        ? menTypes
+        : womenTypes;
+
+    const images =
+        gender === "men"
+        ? menImages
+        : womenImages;
+
+
+    const type =
+        types[
+            (number * 7) %
+            types.length
+        ];
+
+
+    const material =
+        materials[
+            (number * 11) %
+            materials.length
+        ];
+
+
+    const color =
+        colors[
+            (number * 13) %
+            colors.length
+        ];
+
+
+    const pattern =
+        patterns[
+            (number * 17) %
+            patterns.length
+        ];
+
+
+    const fit =
+        fits[
+            (number * 19) %
+            fits.length
+        ];
+
+
+    const collection =
+        collections[
+            (number * 23) %
+            collections.length
+        ];
+
+
+    const image =
+        images[
+            (number * 29) %
+            images.length
+        ];
+
+
+    let id;
+
+    if (gender === "men") {
+
+        id =
+            "NO-M-" +
+            String(number).padStart(4,"0");
+
+    } else {
+
+        id =
+            "NO-W-" +
+            String(number).padStart(4,"0");
+
+    }
+
+
+    /*
+    Unique product name.
+    */
+
+    const name =
+        collection +
+        " " +
+        type +
+        " " +
+        color +
+        " " +
+        pattern +
+        " " +
+        String(number).padStart(4,"0");
+
+
+    /*
+    Different luxury prices.
+    */
+
+    const price =
+        4999 +
+        ((number * 1379) % 120000);
+
+
+    return {
+
+        id: id,
+
+        gender: gender,
+
+        name: name,
+
+        type: type,
+
+        material: material,
+
+        color: color,
+
+        pattern: pattern,
+
+        fit: fit,
+
+        collection: collection,
+
+        price: price,
+
+        image:
+            image +
+            "?auto=format&fit=crop&w=800&q=80"
+
+    };
+
+}
+
+
+/* ==============================
+   CREATE 1000 MEN
+============================== */
+
+for (let i = 1; i <= 1000; i++) {
+
+    products.push(
+        createProduct("men", i)
+    );
+
+}
+
+
+/* ==============================
+   CREATE 1000 WOMEN
+============================== */
+
+for (let i = 1; i <= 1000; i++) {
+
+    products.push(
+        createProduct("women", i)
+    );
+
+}
+
+
+/* ==============================
+   VARIABLES
+============================== */
+
+let selectedGender = "all";
+
+let currentPage = 1;
+
+const perPage = 24;
+
+let cartCount = 0;
+
+
+/* ==============================
+   CATEGORY MENU
+============================== */
+
+const categoryMenu =
+    document.getElementById("category");
+
+
+const categories =
+    [
+        ...new Set(
+            products.map(
+                product => product.type
+            )
+        )
+    ];
+
+
+categories.forEach(category => {
+
+    const option =
+        document.createElement("option");
+
+    option.value = category;
+
+    option.textContent = category;
+
+    categoryMenu.appendChild(option);
+
+});
+
+
+/* ==============================
+   GET FILTERED PRODUCTS
+============================== */
+
+function getFilteredProducts() {
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    const category =
+        categoryMenu.value;
+
+
+    let result =
+        products.filter(product => {
+
+
+            const genderMatch =
+                selectedGender === "all" ||
+                product.gender === selectedGender;
+
+
+            const categoryMatch =
+                category === "all" ||
+                product.type === category;
+
+
+            const searchMatch =
+                product.name
+                .toLowerCase()
+                .includes(search)
+                ||
+                product.material
+                .toLowerCase()
+                .includes(search)
+                ||
+                product.color
+                .toLowerCase()
+                .includes(search)
+                ||
+                product.pattern
+                .toLowerCase()
+                .includes(search);
+
+
+            return (
+                genderMatch &&
+                categoryMatch &&
+                searchMatch
+            );
+
+        });
+
+
+    const sort =
+        document
+        .getElementById("sort")
+        .value;
+
+
+    if (sort === "low") {
+
+        result.sort(
+            (a,b) =>
+            a.price - b.price
+        );
+
+    }
+
+
+    if (sort === "high") {
+
+        result.sort(
+            (a,b) =>
+            b.price - a.price
+        );
+
+    }
+
+
+    return result;
+
+}
+
+
+/* ==============================
+   SHOW PRODUCTS
+============================== */
+
+function showProducts() {
+
+    const container =
+        document.getElementById("products");
+
+
+    container.innerHTML = "";
+
+
+    const filtered =
+        getFilteredProducts();
+
+
+    const totalPages =
+        Math.ceil(
+            filtered.length / perPage
+        );
+
+
+    if (filtered.length === 0) {
+
+        container.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:80px;
+                background:white;
+            ">
+
+                <h2>No Products Found</h2>
+
+                <p style="margin-top:10px;color:#777">
+                    Try another search.
+                </p>
+
+            </div>
+
+        `;
+
+        document
+        .getElementById("pagination")
+        .innerHTML = "";
+
+        return;
+
+    }
+
+
+    if (currentPage > totalPages) {
+
+        currentPage = totalPages;
+
+    }
+
+
+    const start =
+        (currentPage - 1) *
+        perPage;
+
+
+    const visible =
+        filtered.slice(
+            start,
+            start + perPage
+        );
+
+
+    visible.forEach(product => {
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "product";
+
+
+        card.innerHTML = `
+
+            <img
+                class="product-image"
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+            >
+
+
+            <div class="product-info">
+
+                <div class="product-id">
+                    ${product.id}
+                </div>
+
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+
+                <div class="product-details">
+
+                    ${product.material}<br>
+
+                    ${product.color}<br>
+
+                    ${product.pattern}<br>
+
+                    ${product.fit}<br>
+
+                    ${product.collection}
+
+                </div>
+
+
+                <div class="price">
+
+                    ₹${product.price.toLocaleString("en-IN")}
+
+                </div>
+
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('${product.id}')">
+
+                    ADD TO BAG
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+
+    createPagination(totalPages);
+
+}
+
+
+/* ==============================
+   PAGINATION
+============================== */
+
+function createPagination(totalPages) {
+
+    const pagination =
+        document.getElementById("pagination");
+
+
+    pagination.innerHTML = "";
+
+
+    if (totalPages <= 1) {
+        return;
+    }
+
+
+    const previous =
+        document.createElement("button");
+
+
+    previous.textContent =
+        "‹";
+
+
+    previous.disabled =
+        currentPage === 1;
+
+
+    previous.onclick = function() {
+
+        currentPage--;
+
+        showProducts();
+
+        scrollToCollection();
+
+    };
+
+
+    pagination.appendChild(previous);
+
+
+    let first =
+        Math.max(
+            1,
+            currentPage - 2
+        );
+
+
+    let last =
+        Math.min(
+            totalPages,
+            currentPage + 2
+        );
+
+
+    for (
+        let page = first;
+        page <= last;
+        page++
+    ) {
+
+        const button =
+            document.createElement("button");
+
+
+        button.textContent =
+            page;
+
+
+        if (page === currentPage) {
+
+            button.classList.add("active");
+
+        }
+
+
+        button.onclick =
+            function() {
+
+                currentPage = page;
+
+                showProducts();
+
+                scrollToCollection();
+
+            };
+
+
+        pagination.appendChild(button);
+
+    }
+
+
+    const next =
+        document.createElement("button");
+
+
+    next.textContent =
+        "›";
+
+
+    next.disabled =
+        currentPage === totalPages;
+
+
+    next.onclick =
+        function() {
+
+            currentPage++;
+
+            showProducts();
+
+            scrollToCollection();
+
+        };
+
+
+    pagination.appendChild(next);
+
+}
+
+
+/* ==============================
+   GENDER FILTER
+============================== */
+
+function setGender(gender, button) {
+
+    selectedGender =
+        gender;
+
+
+    currentPage =
+        1;
+
+
+    document
+    .querySelectorAll(".gender-button")
+    .forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    showProducts();
+
+}
+
+
+/* ==============================
+   SEARCH
+============================== */
+
+document
+.getElementById("search")
+.addEventListener(
+    "input",
+    function() {
+
+        currentPage = 1;
+
+        showProducts();
+
+    }
+);
+
+
+/* ==============================
+   CATEGORY
+============================== */
+
+categoryMenu
+.addEventListener(
+    "change",
+    function() {
+
+        currentPage = 1;
+
+        showProducts();
+
+    }
+);
+
+
+/* ==============================
+   SORT
+============================== */
+
+document
+.getElementById("sort")
+.addEventListener(
+    "change",
+    function() {
+
+        currentPage = 1;
+
+        showProducts();
+
+    }
+);
+
+
+/* ==============================
+   ADD TO CART
+============================== */
+
+function addToCart(id) {
+
+    const product =
+        products.find(
+            function(item) {
+                return item.id === id;
+            }
+        );
+
+
+    if (!product) {
+        return;
+    }
+
+
+    cartCount++;
+
+
+    document
+    .getElementById("cartCount")
+    .textContent = cartCount;
+
+
+    alert(
+        product.name +
+        "\n\nAdded to your NOIRÉ bag."
+    );
+
+}
+
+
+/* ==============================
+   HERO BUTTON
+============================== */
+
+function goToCollection() {
+
+    document
+    .getElementById("collection")
+    .scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* ==============================
+   SCROLL
+============================== */
+
+function scrollToCollection() {
+
+    document
+    .getElementById("collection")
+    .scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* ==============================
+   START WEBSITE
+============================== */
+
+showProducts();
+
+</script>
+
+</body>
+</html>
+```
